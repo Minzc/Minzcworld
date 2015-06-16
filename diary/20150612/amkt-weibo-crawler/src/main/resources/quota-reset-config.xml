@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+	<property>
+		<name>ip_pre_hour_num_sina</name>
+		<value>5000</value>
+		<description>sina每小时每个ip的限制数</description>
+	</property>
+	<property>
+		<name>ip_pre_hour_num_tx</name>
+		<value>5000</value>
+		<description>tx每小时每个ip的限制数</description>
+	</property>
+	<property>
+		<name>token_pre_hour_num_sina</name>
+		<value>5000</value>
+		<description>sina每小时每个token的限制数</description>
+	</property>
+	<property>
+		<name>token_pre_hour_num_tx</name>
+		<value>5000</value>
+		<description>tx每小时每个token的限制数</description>
+	</property>
+</configuration>
