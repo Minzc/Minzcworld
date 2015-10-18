@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<string.h>
-
+#good good study day day up!
 void countLetterDist(char* word, int* distArray){
   // This function counts the occurences of each letter in word
 
