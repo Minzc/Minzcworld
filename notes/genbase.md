@@ -59,7 +59,7 @@ The bench mark consists of four types of data set
 ### Microarray
 This is the main dataset for all operations and is commonly represented as a matrix with row represents samples and columns representing genes.
 
-![Figure1](media/Figure1.png)
+![Figure1](media/genbase/Figure1.png)
 
 
 ### Patient metadata
@@ -71,11 +71,11 @@ For each patient whose genomic data is available in the microarray dataset, we s
 - Disease
 - Drug Response
 
-![Figure2](media/Figure2.png)
+![Figure2](media/genbase/Figure2.png)
 
 ### Gene metadata
 For every gene in the microarray, we store gene metadata including the target of the gene, chromosome number, position, length and function
-![Figure3](media/Figure3.png)
+![Figure3](media/genbase/Figure3.png)
 
 ### Gene-ontology
 Genes are organized into an ontology depending on the biological functions they serve. These categories from a tree structure, and a gene is placed at the appropriate place in the tree. 
@@ -88,18 +88,18 @@ Build a regression model predicting drug response based on gene expression data.
 
 In this query, we select the expression data fro a subset of genes with a particular set of functions.
 
-![Figure4](media/Figure4.png)
+![Figure4](media/genbase/Figure4.png)
 
 
 ### Covariance
 Genes that have similar expression patterns and those that have opposite expression patterns are likely to be functionally related
 
-![Figure5](media/Figure5.png)
+![Figure5](media/genbase/Figure5.png)
 
 ### Biclustering
 An important goal of genomic analysis is to identify groups of genes and patients that show similar behaviour. Genes with similar behaviours are likely to be biologically related, and therefore can help understand disease pathways. One way to identify genes with similar behaviour is via biclustering. Biclustering allows the simultaneous clustering of rows and columns of a matrix into sub-matrices with similar patterns.
 
-![Figure6](media/Figure6.png)
+![Figure6](media/genbase/Figure6.png)
 
 ### SVD
 As with much experimentally collected data, genomic data is quite noisy. We need to reduce the noise in the experimental data. A popular approach for performing this task is through the use of singular value decomposition. 
