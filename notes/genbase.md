@@ -75,6 +75,7 @@ For each patient whose genomic data is available in the microarray dataset, we s
 
 ### Gene metadata
 For every gene in the microarray, we store gene metadata including the target of the gene, chromosome number, position, length and function
+
 ![Figure3](media/genbase/Figure3.png)
 
 ### Gene-ontology
