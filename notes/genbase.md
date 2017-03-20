@@ -2,7 +2,7 @@
 
 This paper introduces a new benchmark designed to test database management system performance on a mix of data management tasks and complex analysis. As a specific use case, we have chosen genomics data for our benchmark and have constructed a collection of typical tasks in this domain. In addition to being representative of a mix data management and analytics workload, this benchmark is also meant to scale to large data set sizes and multiple node across a cluster.
 
-At the present time, we see a sea change occurring in DBMS analytics. Specifically, the previous focus has been on traditional BI where commercial products offer an easy to use GUI for standard SQL aggregates. We see the DBMS analytics market shifting quickly and dramatically to more complex analytics. This is the domain of data scientists where common operations include predictive modeling, data clustering, regressions, probabilistic modeling, and the like.
+At the present time, we see a sea change occurring in DBMS analytics. Specifically, the previous focus has been on traditional BI where commercial products offer an easy to use GUI for standard SQL aggregates. We see the DBMS analytics market shifting quickly and dramatically to more complex analytics. This is the domain of data scientists where common operations include predictive modelling, data clustering, regressions, probabilistic modelling, and the like.
 
 In summary, we believe it is important to focus the DBMS community on this new class of data science problems, which we can characterize by the following two requirements. 
 
@@ -43,5 +43,72 @@ It's important to note that not every gene is transcribed and translated into pr
 
 
 Even though all cells in the human body contain the entire genetic code, only a subset of genes are actually active at any given time in any given cell. **The level of activity of a gene can be almost as important as the gene itself for determining phenotype.** AS a result, the mechanisms for regulating the expression of certain genes are active area of research. 
+
+## Operations
+The queries represent operations such as SVD, regression and statistics that are most commonly executed on microarray data. 
+
+Genomics data can be extremely large scale, with $10^{4-5}$ gene expression per sample and up to $10^{8-10}$ samples.
+
+## Data Set (Most important part)
+The bench mark consists of four types of data set
+1. microarray
+2. patient metadata
+3. gene metadata
+4. gene ontology
+
+### Microarray
+This is the main dataset for all operations and is commonly represented as a matrix with row represents samples and columns representing genes.
+
+![Figure1](media/Figure1.png)
+
+
+### Patient metadata
+For each patient whose genomic data is available in the microarray dataset, we store patient metadata including demographics and clinical information as noted below.
+
+- Age
+- Gender
+- Zip code
+- Disease
+- Drug Response
+
+![Figure2](media/Figure2.png)
+
+### Gene metadata
+For every gene in the microarray, we store gene metadata including the target of the gene, chromosome number, position, length and function
+![Figure3](media/Figure3.png)
+
+### Gene-ontology
+Genes are organized into an ontology depending on the biological functions they serve. These categories from a tree structure, and a gene is placed at the appropriate place in the tree. 
+
+## Queries
+### Predictive Modelling
+An important use case for genomic data is predicting drug response base on gene expression and using this information to determine drug regimens for patients.
+
+Build a regression model predicting drug response based on gene expression data.
+
+In this query, we select the expression data fro a subset of genes with a particular set of functions.
+
+![Figure4](media/Figure4.png)
+
+
+### Covariance
+Genes that have similar expression patterns and those that have opposite expression patterns are likely to be functionally related
+
+![Figure5](media/Figure5.png)
+
+### Biclustering
+An important goal of genomic analysis is to identify groups of genes and patients that show similar behaviour. Genes with similar behaviours are likely to be biologically related, and therefore can help understand disease pathways. One way to identify genes with similar behaviour is via biclustering. Biclustering allows the simultaneous clustering of rows and columns of a matrix into sub-matrices with similar patterns.
+
+![Figure6](media/Figure6.png)
+
+### SVD
+As with much experimentally collected data, genomic data is quite noisy. We need to reduce the noise in the experimental data. A popular approach for performing this task is through the use of singular value decomposition. 
+
+$$M = U \Sigma V$$
+
+### Statistical test
+An extremely common operation in genomic analysis is called enrichment.
+
+Consider a set of genes $G$ that all participate in the same biological process. To determine if the set of genes $G$ is related to a particular disease, the entire known set of genes is ranked based on their expression values for cancer. Statistical tests are then used to find out where the members of G tend to occur in that ranking. If the members of G do occur at the top or bottom of the list. G is said to be correlate with cancer and metrits colser analysis for potential drug target. 
 
 
